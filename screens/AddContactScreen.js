@@ -1,5 +1,5 @@
 import React from 'react'
-import AddContactForm from '../AddContactForm'
+import AddContactForm from '../components/AddContactForm'
 import {connect} from 'react-redux'
 
 import {addContact} from '../redux/actions'

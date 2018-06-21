@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   createStackNavigator,
-  createSwitchNavigator,
   createBottomTabNavigator,
 } from 'react-navigation'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -11,9 +10,6 @@ import AddContactScreen from './screens/AddContactScreen'
 import SettingsScreen from './screens/SettingsScreen'
 import ContactListScreen from './screens/ContactListScreen'
 import ContactDetailsScreen from './screens/ContactDetailsScreen'
-import LoginScreen from './screens/LoginScreen'
-import {fetchUsers} from './api'
-import contacts from './contacts'
 import store from './redux/store'
 
 const MainStack = createStackNavigator(
@@ -51,33 +47,9 @@ const MainTabs = createBottomTabNavigator(
   }
 )
 
-const AppNavigator = createSwitchNavigator({
-  Login: LoginScreen,
-  Main: MainTabs,
-})
+
 
 export default class App extends React.Component {
-  state = {
-    contacts,
-  }
-
-  /*
-  componentDidMount() {
-    this.getUsers()
-  }
-
-  getUsers = async () => {
-    const results = await fetchUsers()
-    this.setState({contacts: results})
-  }
-  */
-
-  addContact = newContact => {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }))
-  }
-
   render() {
     return (
       <Provider store={store}>
