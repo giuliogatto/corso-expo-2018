@@ -11,6 +11,7 @@ import SettingsScreen from './screens/SettingsScreen'
 import ContactListScreen from './screens/ContactListScreen'
 import ContactDetailsScreen from './screens/ContactDetailsScreen'
 import store from './redux/store'
+import WelcomeScreen from './screens/WelcomeScreen'
 
 const MainStack = createStackNavigator(
   {
@@ -39,6 +40,7 @@ const MainTabs = createBottomTabNavigator(
   {
     Contacts: MainStack,
     Settings: SettingsScreen,
+    Welcome: WelcomeScreen,
   },
   {
     tabBarOptions: {
