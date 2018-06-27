@@ -9,6 +9,13 @@ export default class WelcomeScreen extends React.Component {
       <Ionicons name={`ios-options${focused ? '' : '-outline'}`} size={25} color={tintColor} />
     ),
   }
+  componentDidMount(){
+    fetch('https://5b3348f7d167760014c26437.mockapi.io/api/v1/items')  
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    });
+  }
   render() {
     return (
       <View style={styles.container}>
