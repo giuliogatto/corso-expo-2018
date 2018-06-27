@@ -12,6 +12,8 @@ import ContactListScreen from './screens/ContactListScreen'
 import ContactDetailsScreen from './screens/ContactDetailsScreen'
 import store from './redux/store'
 
+// MAIN STACK NAVIGATOR: comprende 3 schermate su cui navigare
+
 const MainStack = createStackNavigator(
   {
     ContactList: ContactListScreen,
@@ -35,6 +37,9 @@ MainStack.navigationOptions = {
   ),
 }
 
+// MAIN TABS COMPONENT: navigazione a TABS che comprende uno screen (SettingsScreen) e uno Stack Navigator (MainStack)
+// esempio di composizione di navigazione
+
 const MainTabs = createBottomTabNavigator(
   {
     Contacts: MainStack,
@@ -47,7 +52,8 @@ const MainTabs = createBottomTabNavigator(
   }
 )
 
-
+// COMPONENTE PRINCIPALE: ENTRY POINT DELLA APP
+// e' incluso dentro ad un componente <Provider> legato allo store importato da /redux/store
 
 export default class App extends React.Component {
   render() {

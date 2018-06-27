@@ -1,5 +1,5 @@
 import React from 'react'
-import {SectionList, Text} from 'react-native'
+import {SectionList, Text, StyleSheet} from 'react-native'
 import PropTypes from 'prop-types'
 
 import Row from './Row'
@@ -24,6 +24,7 @@ const SectionListContacts = props => {
 
   return (
     <SectionList
+      style={styles.sectionlist}
       keyExtractor={item => item.phone}
       sections={sections}
       renderItem={({item}) => <Row {...item} onSelectContact={props.onSelectContact} />}
@@ -35,5 +36,9 @@ const SectionListContacts = props => {
 SectionListContacts.propTypes = {
   contacts: PropTypes.array,
 }
+
+const styles = StyleSheet.create({
+  sectionlist: {padding: 20},
+})
 
 export default SectionListContacts

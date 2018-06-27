@@ -16,7 +16,6 @@ class ContactListScreen extends React.Component {
     showContacts: true,
   }
 
-
   handleSelectContact = contact => {
     this.props.navigation.push('ContactDetails', contact)
   }

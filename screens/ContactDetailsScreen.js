@@ -10,6 +10,7 @@ export default class ContactDetailsScreen extends React.Component {
     return (
       <View>
         <Text>{this.props.navigation.getParam('phone')}</Text>
+        <Text>{this.props.navigation.getParam('name')}</Text>
       </View>
     )
   }
