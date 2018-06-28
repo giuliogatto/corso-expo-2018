@@ -11,6 +11,9 @@ const store = createStore(
 // argomenti di createStore: un reducer, stato iniziale (che si puo' saltare), middleware
 // ritorna un oggetto che definisce lo stato completo dell'applicazione
 // MIDDLEWARE e' l'unico modo per cambiare il modo di funzionamento del dispatch
+// MIDDLEWARE: in express per esempio e' un layer di business logic (funzioni) che viene applicata ad ogni REQUEST
+// un middleware viene in pratica INIETTATO nella logica, come un blocco indipendente che agisce in qualche modo sui dati in un certo momento
+// IN REDUX un middleware permette di iniettare della logica custom al DISPATCH di una ACTION, prima che raggiunga il REDUCER
 
 /*
 store.dispatch(updateUser({foo: 'foo'}))
