@@ -1,9 +1,12 @@
 import React from 'react'
 import {Button, View, StyleSheet, Text, FlatList, Image , ScrollView} from 'react-native'
+import {connect} from 'react-redux'
+import store from '../redux/store'
+import {addContact} from '../redux/actions'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-export default class WelcomeScreen extends React.Component {
+class WelcomeScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: ({focused, tintColor}) => (
       <Ionicons name={`ios-options${focused ? '' : '-outline'}`} size={25} color={tintColor} />
@@ -20,6 +23,10 @@ export default class WelcomeScreen extends React.Component {
     .then(data => {
       console.log(data)
       this.setState({data:data})
+      for (var i = 0; i < data.length; i++) {
+        store.dispatch(addContact({name: data[i].name, phone: data[i].id}))
+      }
+      
     });
   }
 
@@ -53,6 +60,20 @@ export default class WelcomeScreen extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  items: state.data,
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // 
+  };
+};
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(WelcomeScreen)
 
 const styles = StyleSheet.create({
   container: {

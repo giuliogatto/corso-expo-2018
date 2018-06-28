@@ -1,9 +1,16 @@
-import {createStore} from 'redux'
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import {addContact} from './actions'
 import reducer from './reducer'
 
-const store = createStore(reducer)
+const store = createStore(
+		reducer,
+        applyMiddleware(thunk))
+
+// argomenti di createStore: un reducer, stato iniziale (che si puo' saltare), middleware
+// ritorna un oggetto che definisce lo stato completo dell'applicazione
+// MIDDLEWARE e' l'unico modo per cambiare il modo di funzionamento del dispatch
 
 /*
 store.dispatch(updateUser({foo: 'foo'}))

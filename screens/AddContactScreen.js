@@ -19,4 +19,6 @@ class AddContactScreen extends React.Component {
   }
 }
 
+// connect 2 argomenti: 1) mapStateToProps 2) mapDispatchToProps . Entrambi sono oggetti
 export default connect(null, {addContact: addContact})(AddContactScreen)
+
