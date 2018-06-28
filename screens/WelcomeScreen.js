@@ -3,6 +3,7 @@ import {Button, View, StyleSheet, Text, FlatList, Image , ScrollView} from 'reac
 import {connect} from 'react-redux'
 import store from '../redux/store'
 import {addContact} from '../redux/actions'
+import {itemsFetch} from '../redux/actions'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -18,16 +19,17 @@ class WelcomeScreen extends React.Component {
   }
 
   componentDidMount(){
-    fetch('https://5b3348f7d167760014c26437.mockapi.io/api/v1/items')  
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      this.setState({data:data})
-      for (var i = 0; i < data.length; i++) {
-        store.dispatch(addContact({name: data[i].name, phone: data[i].id}))
-      }
+    this.props.fetchData('https://5b3348f7d167760014c26437.mockapi.io/api/v1/items')
+    // fetch('https://5b3348f7d167760014c26437.mockapi.io/api/v1/items')  
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log(data)
+    //   this.setState({data:data})
+    //   for (var i = 0; i < data.length; i++) {
+    //     store.dispatch(addContact({name: data[i].name, phone: data[i].id}))
+    //   }
       
-    });
+    // });
   }
 
 
@@ -67,7 +69,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    // 
+    fetchData: url => dispatch(itemsFetch(url)),
   };
 };
 

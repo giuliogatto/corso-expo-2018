@@ -42,11 +42,11 @@ const MainTabs = createBottomTabNavigator(
     Settings: SettingsScreen,
     Welcome: WelcomeScreen,
   },
-  {
-    tabBarOptions: {
-      activeTintColor: '#a41034',
-    },
-  }
+  // {
+  //   tabBarOptions: {
+  //     activeTintColor: '#a41034',
+  //   },
+  // }
 )
 
 
